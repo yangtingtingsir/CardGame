@@ -766,6 +766,18 @@ var slotConfig3x5 = {
         slotControls.slotMaxBetButton.setDepth(depth); 
          
         
+        slotControls.addCoins = new SceneButton(scene, 'button_plus', 'button_plus_hover', false);
+        slotControls.buttons.push(slotControls.addCoins);
+        slotControls.addCoins.create(800,380 , 0.5, 0.5);
+        slotControls.addCoins.setDepth(depth);
+        
+        slotControls.addCoins.addClickEvent(() => {
+            //修改
+            scene.slotPlayer.coins = scene.slotPlayer.coins + 1000;
+            slotControls.creditSumText.text = scene.slotPlayer.coins;
+
+        }, this);
+        
         // autoSpin button
         slotControls.slotAutoSpinButton = new SceneButton(scene, 'button_autospin', 'button_autospin_hover', true); 
         slotControls.buttons.push(slotControls.slotAutoSpinButton);
